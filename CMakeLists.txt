@@ -29,5 +29,3 @@ find_package(SFML 2.5 COMPONENTS audio graphics window system REQUIRED)
 add_executable(${PROJECT_NAME} ${APP_SOURCES})
 file(COPY assets DESTINATION ${CMAKE_RUNTIME_OUTPUT_DIRECTORY})
 target_link_libraries(${PROJECT_NAME} sfml-audio sfml-graphics sfml-window sfml-system)
-
-# https://github.com/ufrshubham/2D-Snake-Game

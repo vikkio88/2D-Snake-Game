@@ -2,7 +2,7 @@
 
 ## A simple game created using C++ and SFML
 
-adde CMake configuration
+adde CMake configuration, forked from [2d-Snake](https://github.com/ufrshubham/2D-Snake-Game)
 
 ### What it looks like?
 ![](Demo.gif)
