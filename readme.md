@@ -2,7 +2,7 @@
 
 ## A simple game created using C++ and SFML
 
----
+adde CMake configuration
 
 ### What it looks like?
 ![](Demo.gif)

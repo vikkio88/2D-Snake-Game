@@ -4,7 +4,7 @@
 
 #include <SFML/Window/Event.hpp>
 
-#include <stdlib.h>
+#include <cmath>
 #include <time.h>
 
 GamePlay::GamePlay(std::shared_ptr<Context> &context)
