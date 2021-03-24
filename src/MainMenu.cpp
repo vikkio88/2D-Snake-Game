@@ -17,22 +17,21 @@ MainMenu::~MainMenu()
 void MainMenu::Init()
 {
     m_context->m_assets->AddFont(MAIN_FONT, "assets/fonts/Pacifico-Regular.ttf");
+    auto [x, y] = m_context->m_window->getSize();
 
     // Title
     m_gameTitle.setFont(m_context->m_assets->GetFont(MAIN_FONT));
     m_gameTitle.setString("Snake Game");
     m_gameTitle.setOrigin(m_gameTitle.getLocalBounds().width / 2,
                           m_gameTitle.getLocalBounds().height / 2);
-    m_gameTitle.setPosition(m_context->m_window->getSize().x / 2,
-                            m_context->m_window->getSize().y / 2 - 150.f);
+    m_gameTitle.setPosition(x / 2, y / 2 - 150.f);
 
     // Play Button
     m_playButton.setFont(m_context->m_assets->GetFont(MAIN_FONT));
     m_playButton.setString("Play");
     m_playButton.setOrigin(m_playButton.getLocalBounds().width / 2,
                            m_playButton.getLocalBounds().height / 2);
-    m_playButton.setPosition(m_context->m_window->getSize().x / 2,
-                             m_context->m_window->getSize().y / 2 - 25.f);
+    m_playButton.setPosition(x / 2, y / 2 - 25.f);
     m_playButton.setCharacterSize(20);
 
     // Exit Button
@@ -40,8 +39,7 @@ void MainMenu::Init()
     m_exitButton.setString("Exit");
     m_exitButton.setOrigin(m_exitButton.getLocalBounds().width / 2,
                            m_exitButton.getLocalBounds().height / 2);
-    m_exitButton.setPosition(m_context->m_window->getSize().x / 2,
-                             m_context->m_window->getSize().y / 2 + 25.f);
+    m_exitButton.setPosition(x / 2, y / 2 + 25.f);
     m_exitButton.setCharacterSize(20);
 }
 
@@ -103,7 +101,7 @@ void MainMenu::ProcessInput()
 
 void MainMenu::Update(sf::Time deltaTime)
 {
-    if(m_isPlayButtonSelected)
+    if (m_isPlayButtonSelected)
     {
         m_playButton.setFillColor(sf::Color::Black);
         m_exitButton.setFillColor(sf::Color::White);
@@ -113,16 +111,15 @@ void MainMenu::Update(sf::Time deltaTime)
         m_exitButton.setFillColor(sf::Color::Black);
         m_playButton.setFillColor(sf::Color::White);
     }
-    
-    if(m_isPlayButtonPressed)
+
+    if (m_isPlayButtonPressed)
     {
         m_context->m_states->Add(std::make_unique<GamePlay>(m_context), true);
     }
-    else if(m_isExitButtonPressed)
+    else if (m_isExitButtonPressed)
     {
         m_context->m_window->close();
     }
-    
 }
 
 void MainMenu::Draw()
